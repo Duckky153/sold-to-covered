@@ -1,0 +1,222 @@
+{
+  "version": "2026-11-13.2",
+  "about": "The activation checks, kept as data. engine.js runs every check on every order. A new check that uses an existing rule type is one entry here; a new kind of rule needs a few lines in engine.js.",
+  "fields": {
+    "pay_type": "Pay type",
+    "finance_agreement": "Finance agreement",
+    "down_payment_pct": "Down payment",
+    "address": "Business address",
+    "docs_required": "Carrier needs",
+    "docs_received": "Received",
+    "docs_requested": "Asked for",
+    "premium_sold": "Sold premium",
+    "carrier_invoice": "Carrier invoice",
+    "billing": "Billing on our record",
+    "carrier_billing": "Carrier bills as",
+    "source": "Source on our record",
+    "carrier_source": "Source on carrier record",
+    "certificate_request": "Certificate request",
+    "policy_status": "Policy status"
+  },
+  "owners": {
+    "Agent": "AI agent can fix",
+    "Customer": "Ask the customer",
+    "Licensed": "Licensed person"
+  },
+  "checks": [
+    {
+      "id": "pay_type",
+      "name": "Pay type, derived not typed",
+      "why": "A financed deal marked paid in full means the finance company is never set up or paid, and the policy can cancel.",
+      "owner": "Agent",
+      "rule": {
+        "kind": "derive_mismatch",
+        "field": "pay_type",
+        "derive": {
+          "when_any": [
+            {
+              "field": "finance_agreement",
+              "eq": "On file"
+            }
+          ],
+          "then": "Financed",
+          "else": "Paid in full"
+        }
+      },
+      "says": "Marked {pay_type|lower}, but the paperwork says {derived|lower}.",
+      "evidence": [
+        "pay_type",
+        "finance_agreement",
+        "down_payment_pct"
+      ],
+      "next_step": "Change the pay type to {derived|lower} before binding.",
+      "how_to_fix": {
+        "means": "The pay type was typed in by hand and does not match the paperwork.",
+        "confirm": "A premium finance agreement on file means financed. A carrier's own installment plan is not financing.",
+        "tell_customer": "Nothing. This is our record to fix.",
+        "hand_off": "If the finance agreement and what the customer was told disagree, pass it to a licensed teammate."
+      }
+    },
+    {
+      "id": "po_box",
+      "name": "Real business address",
+      "why": "Carriers rate and inspect the place the business works. A PO box or private mailbox is not a location.",
+      "owner": "Customer",
+      "rule": {
+        "kind": "matches",
+        "field": "address",
+        "pattern": "\\b(p\\.?\\s*o\\.?\\s*box|p\\.?\\s*o\\.?\\s*b\\.?(?=\\s*\\d)|post\\s+office\\s+box|pmb)\\b|^\\s*box\\s+\\d",
+        "flags": "i"
+      },
+      "says": "The business address is a mailbox ({address}).",
+      "evidence": [
+        "address"
+      ],
+      "next_step": "Ask the customer for the street address where the business operates.",
+      "customer_message": "Hi {contact}, before your {line|lower} policy can start, we need the street address where {business} operates. The insurance company can't use a PO box as the business location. Can you reply with the street address?",
+      "how_to_fix": {
+        "means": "The only address we have is a mailbox.",
+        "confirm": "Look for a street address anywhere else in the file before asking.",
+        "tell_customer": "Ask for the street address where the work happens. Keep the PO box as the mailing address if they want it.",
+        "hand_off": "If the business truly has no fixed location (a food truck, a mobile crew), pass it to a licensed teammate."
+      }
+    },
+    {
+      "id": "carrier_docs",
+      "name": "Subjectivities (carrier documents)",
+      "why": "A carrier document nobody asked for holds up the policy late, after the customer thinks it is done.",
+      "owner": "Customer",
+      "rule": {
+        "kind": "list_not_covered",
+        "field": "docs_required",
+        "covered_by": [
+          "docs_received",
+          "docs_requested"
+        ]
+      },
+      "says": "The carrier still needs the {missing|lower}, and nobody has asked for it.",
+      "evidence": [
+        "docs_required",
+        "docs_received",
+        "docs_requested"
+      ],
+      "next_step": "Send the customer one message listing what is still needed.",
+      "customer_message": "Hi {contact}, before your {line|lower} policy can start on {effective_date}, the insurance company needs your {missing|lower}. You can reply to this message with it.",
+      "how_to_fix": {
+        "means": "Something on the carrier's list is neither received nor requested.",
+        "confirm": "Check the inbox first. Documents sent by email count as received.",
+        "tell_customer": "One message, every missing item, before the chase starts.",
+        "hand_off": "If the customer asks why the carrier needs it, a licensed teammate answers."
+      }
+    },
+    {
+      "id": "amounts",
+      "name": "Amounts match",
+      "why": "If the invoice and the sold price differ, the customer is billed a number they never agreed to, or coverage changed.",
+      "owner": "Licensed",
+      "rule": {
+        "kind": "differs_by_more_than",
+        "a": "premium_sold",
+        "b": "carrier_invoice",
+        "amount": 25,
+        "missing_counts": true
+      },
+      "says": "Sold at {premium_sold}, but the carrier invoice says {carrier_invoice}.",
+      "evidence": [
+        "premium_sold",
+        "carrier_invoice"
+      ],
+      "next_step": "A licensed teammate confirms the right amount with the carrier before binding.",
+      "how_to_fix": {
+        "means": "The price we sold and the price the carrier bills are different.",
+        "confirm": "Look for a carrier fee or a changed coverage limit that explains the gap.",
+        "tell_customer": "Nothing until a licensed teammate knows the right number.",
+        "hand_off": "Always. A price change can mean a coverage change."
+      }
+    },
+    {
+      "id": "billing",
+      "name": "Billing matches",
+      "why": "Agency bill and direct bill send the invoice to different places. The wrong one means a missed payment.",
+      "owner": "Agent",
+      "rule": {
+        "kind": "fields_differ",
+        "a": "billing",
+        "b": "carrier_billing"
+      },
+      "says": "Our record says {billing|lower}, but the carrier uses {carrier_billing|lower}.",
+      "evidence": [
+        "billing",
+        "carrier_billing"
+      ],
+      "next_step": "Change our record to {carrier_billing|lower}.",
+      "how_to_fix": {
+        "means": "We and the carrier disagree on who sends the bill.",
+        "confirm": "The carrier's binder or quote says how it bills.",
+        "tell_customer": "Only if who bills them changes. Tell them who the bill will come from.",
+        "hand_off": "If the customer was promised a billing type the carrier will not do."
+      }
+    },
+    {
+      "id": "source",
+      "name": "Source known",
+      "why": "Instant and broker deals bind differently. An unknown source sends the order down the wrong path.",
+      "owner": "Agent",
+      "rule": {
+        "kind": "any",
+        "rules": [
+          {
+            "kind": "is_empty",
+            "field": "source"
+          },
+          {
+            "kind": "fields_differ",
+            "a": "source",
+            "b": "carrier_source"
+          }
+        ]
+      },
+      "says": "Source is {source|lower} on our record and {carrier_source|lower} on the carrier's.",
+      "evidence": [
+        "source",
+        "carrier_source"
+      ],
+      "next_step": "Set the source from the carrier record.",
+      "how_to_fix": {
+        "means": "We don't know, or disagree about, whether this came from an instant quote or a broker.",
+        "confirm": "The carrier record is the source of truth for how the quote was made.",
+        "tell_customer": "Nothing.",
+        "hand_off": "If neither record says, ask the person who sold it."
+      }
+    },
+    {
+      "id": "certificate",
+      "name": "Certificate on an active policy",
+      "why": "A certificate on a policy that is not active tells someone there is cover when there is not.",
+      "owner": "Licensed",
+      "rule": {
+        "kind": "when_then",
+        "when": {
+          "field": "certificate_request",
+          "present": true
+        },
+        "require": {
+          "field": "policy_status",
+          "eq": "Active"
+        }
+      },
+      "says": "A certificate is requested, but the policy is still {policy_status|lower}.",
+      "evidence": [
+        "certificate_request",
+        "policy_status"
+      ],
+      "next_step": "Hold the certificate. A licensed teammate tells the customer when it can be issued.",
+      "how_to_fix": {
+        "means": "Someone wants proof of insurance before the policy exists.",
+        "confirm": "Check the policy status with the carrier, not only our record.",
+        "tell_customer": "A licensed teammate tells them the date the certificate can be issued.",
+        "hand_off": "Always. Never issue it early."
+      }
+    }
+  ]
+}

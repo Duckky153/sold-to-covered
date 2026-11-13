@@ -1,0 +1,240 @@
+{
+ "simulated": true,
+ "note": "Simulated rollout. Every number on this view is invented to show what gets tracked.",
+ "days": [
+  {
+   "day": "2026-10-05",
+   "early": {
+    "flags": 9,
+    "fixed": 8,
+    "dismissed": 1,
+    "overridden": 0,
+    "moved_open": 0,
+    "median_min": 7
+   },
+   "late": null
+  },
+  {
+   "day": "2026-10-06",
+   "early": {
+    "flags": 10,
+    "fixed": 9,
+    "dismissed": 1,
+    "overridden": 0,
+    "moved_open": 0,
+    "median_min": 6
+   },
+   "late": null
+  },
+  {
+   "day": "2026-10-07",
+   "early": {
+    "flags": 21,
+    "fixed": 17,
+    "dismissed": 3,
+    "overridden": 0,
+    "moved_open": 1,
+    "median_min": 6
+   },
+   "late": null
+  },
+  {
+   "day": "2026-10-08",
+   "early": {
+    "flags": 20,
+    "fixed": 16,
+    "dismissed": 3,
+    "overridden": 0,
+    "moved_open": 1,
+    "median_min": 5
+   },
+   "late": {
+    "flags": 19,
+    "fixed": 6,
+    "dismissed": 2,
+    "overridden": 1,
+    "moved_open": 10,
+    "median_min": 9
+   }
+  },
+  {
+   "day": "2026-10-09",
+   "early": {
+    "flags": 22,
+    "fixed": 18,
+    "dismissed": 3,
+    "overridden": 1,
+    "moved_open": 0,
+    "median_min": 5
+   },
+   "late": {
+    "flags": 20,
+    "fixed": 5,
+    "dismissed": 1,
+    "overridden": 1,
+    "moved_open": 13,
+    "median_min": 10
+   }
+  },
+  {
+   "day": "2026-10-12",
+   "early": {
+    "flags": 21,
+    "fixed": 19,
+    "dismissed": 1,
+    "overridden": 1,
+    "moved_open": 0,
+    "median_min": 5
+   },
+   "late": {
+    "flags": 18,
+    "fixed": 15,
+    "dismissed": 1,
+    "overridden": 1,
+    "moved_open": 1,
+    "median_min": 6
+   }
+  },
+  {
+   "day": "2026-10-13",
+   "early": {
+    "flags": 20,
+    "fixed": 19,
+    "dismissed": 1,
+    "overridden": 0,
+    "moved_open": 0,
+    "median_min": 4
+   },
+   "late": {
+    "flags": 19,
+    "fixed": 17,
+    "dismissed": 1,
+    "overridden": 0,
+    "moved_open": 1,
+    "median_min": 5
+   }
+  },
+  {
+   "day": "2026-10-14",
+   "early": {
+    "flags": 22,
+    "fixed": 21,
+    "dismissed": 0,
+    "overridden": 1,
+    "moved_open": 0,
+    "median_min": 4
+   },
+   "late": {
+    "flags": 20,
+    "fixed": 19,
+    "dismissed": 0,
+    "overridden": 1,
+    "moved_open": 0,
+    "median_min": 5
+   }
+  },
+  {
+   "day": "2026-10-15",
+   "early": {
+    "flags": 21,
+    "fixed": 20,
+    "dismissed": 1,
+    "overridden": 0,
+    "moved_open": 0,
+    "median_min": 4
+   },
+   "late": {
+    "flags": 19,
+    "fixed": 18,
+    "dismissed": 1,
+    "overridden": 0,
+    "moved_open": 0,
+    "median_min": 4
+   }
+  },
+  {
+   "day": "2026-10-16",
+   "early": {
+    "flags": 22,
+    "fixed": 21,
+    "dismissed": 0,
+    "overridden": 0,
+    "moved_open": 1,
+    "median_min": 4
+   },
+   "late": {
+    "flags": 21,
+    "fixed": 20,
+    "dismissed": 0,
+    "overridden": 0,
+    "moved_open": 1,
+    "median_min": 4
+   }
+  }
+ ],
+ "found_after_bind_note": "Counted 30 days after each week, because problems after binding take time to surface. Includes problems the seven checks do not look for (about 8 a week).",
+ "uncovered_per_week": 8,
+ "found_after_bind": [
+  {
+   "label": "Week before",
+   "value": 41,
+   "detail": "Sep 28 to Oct 2, no checks"
+  },
+  {
+   "label": "Week 1",
+   "value": 38,
+   "detail": "Oct 5 to 9, late shift skipping flags"
+  },
+  {
+   "label": "Week 2",
+   "value": 12,
+   "detail": "Oct 12 to 16, both shifts"
+  }
+ ],
+ "log": [
+  {
+   "day": "2026-10-05",
+   "text": "Pilot: Maya and Jordan on the early shift work the checklist. 15 minutes of training with the How to fix cards."
+  },
+  {
+   "day": "2026-10-07",
+   "text": "Whole early shift on the checks."
+  },
+  {
+   "day": "2026-10-08",
+   "text": "Late shift added."
+  },
+  {
+   "day": "2026-10-09",
+   "text": "Late shift moved 13 orders with a flag still open. Cause: they work from the email queue, and the checklist only showed in the order view."
+  },
+  {
+   "day": "2026-10-12",
+   "text": "Checklist added to the email queue view. 10-minute walkthrough with the late shift. Moved-open drops to 1."
+  },
+  {
+   "day": "2026-10-13",
+   "text": "Subjectivities check changed: 9 dismissals said \"customer already sent it\". Documents that arrive by email now count as received."
+  }
+ ],
+ "dismiss_reasons": [
+  {
+   "check": "carrier_docs",
+   "reason": "Customer already sent it",
+   "week1": 9,
+   "week2": 1
+  },
+  {
+   "check": "amounts",
+   "reason": "Carrier fee, not a mistake",
+   "week1": 3,
+   "week2": 3
+  },
+  {
+   "check": "source",
+   "reason": "Broker deal entered by hand",
+   "week1": 2,
+   "week2": 2
+  }
+ ]
+}

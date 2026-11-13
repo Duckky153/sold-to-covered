@@ -1,0 +1,413 @@
+{
+ "sample": true,
+ "pass_mark": 9,
+ "orders": [
+  {
+   "id": "PR-01",
+   "business": "Ironwood Kitchen LLC",
+   "industry": "Restaurant",
+   "contact": "Marcus",
+   "address": "1422 Peachtree Rd",
+   "city": "Nashville",
+   "state": "TN",
+   "zip": "37246",
+   "line": "General liability",
+   "carrier": "Northfield Mutual",
+   "source": "Broker",
+   "carrier_source": "Broker",
+   "pay_type": "Financed",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Direct bill",
+   "carrier_billing": "Direct bill",
+   "premium_sold": 8400,
+   "carrier_invoice": 8400,
+   "docs_required": [
+    "Signed application"
+   ],
+   "docs_received": [],
+   "docs_requested": [
+    "Signed application"
+   ],
+   "policy_status": "Ready to bind",
+   "certificate_request": null,
+   "effective_date": "2026-11-21",
+   "sold_at": "2026-11-13 10:00",
+   "shift": "Late",
+   "owner": "Sam"
+  },
+  {
+   "id": "PR-02",
+   "business": "Highline Cleaning Co Co",
+   "industry": "Cleaning company",
+   "contact": "Linda",
+   "address": "PO Box 6143",
+   "city": "Phoenix",
+   "state": "AZ",
+   "zip": "85068",
+   "line": "Commercial property",
+   "carrier": "Granite Casualty",
+   "source": "Broker",
+   "carrier_source": "Broker",
+   "pay_type": "Paid in full",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Agency bill",
+   "carrier_billing": "Agency bill",
+   "premium_sold": 13995,
+   "carrier_invoice": 13995,
+   "docs_required": [
+    "Signed application",
+    "Property photos"
+   ],
+   "docs_received": [],
+   "docs_requested": [
+    "Signed application",
+    "Property photos"
+   ],
+   "policy_status": "Ready to bind",
+   "certificate_request": null,
+   "effective_date": "2026-11-18",
+   "sold_at": "2026-11-13 15:01",
+   "shift": "Early",
+   "owner": "Priya"
+  },
+  {
+   "id": "PR-03",
+   "business": "Brightway Security LLC",
+   "industry": "Security guard company",
+   "contact": "Dev",
+   "address": "7951 Market St",
+   "city": "Marietta",
+   "state": "GA",
+   "zip": "30076",
+   "line": "Commercial property",
+   "carrier": "Northfield Mutual",
+   "source": "Broker",
+   "carrier_source": "Broker",
+   "pay_type": "Paid in full",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Direct bill",
+   "carrier_billing": "Direct bill",
+   "premium_sold": 6475,
+   "carrier_invoice": 6475,
+   "docs_required": [
+    "Signed application"
+   ],
+   "docs_received": [],
+   "docs_requested": [
+    "Signed application"
+   ],
+   "policy_status": "Ready to bind",
+   "certificate_request": null,
+   "effective_date": "2026-11-17",
+   "sold_at": "2026-11-13 13:49",
+   "shift": "Late",
+   "owner": "Luis"
+  },
+  {
+   "id": "PR-04",
+   "business": "Sunrise Builders LLC",
+   "industry": "General contractor",
+   "contact": "Victor",
+   "address": "5140 Market St",
+   "city": "Marietta",
+   "state": "GA",
+   "zip": "30092",
+   "line": "Professional liability",
+   "carrier": "Prairie Indemnity",
+   "source": "Broker",
+   "carrier_source": "Broker",
+   "pay_type": "Paid in full",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Direct bill",
+   "carrier_billing": "Direct bill",
+   "premium_sold": 2500,
+   "carrier_invoice": 2500,
+   "docs_required": [
+    "Signed application",
+    "Resumes of key staff"
+   ],
+   "docs_received": [
+    "Signed application"
+   ],
+   "docs_requested": [],
+   "policy_status": "Ready to bind",
+   "certificate_request": null,
+   "effective_date": "2026-11-21",
+   "sold_at": "2026-11-13 15:51",
+   "shift": "Late",
+   "owner": "Tasha"
+  },
+  {
+   "id": "PR-05",
+   "business": "Magnolia Auto Repair Co",
+   "industry": "Auto repair garage",
+   "contact": "Grace",
+   "address": "7214 Market St",
+   "city": "Atlanta",
+   "state": "GA",
+   "zip": "30394",
+   "line": "General liability",
+   "carrier": "Northfield Mutual",
+   "source": "Instant quote",
+   "carrier_source": "Instant quote",
+   "pay_type": "Paid in full",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Direct bill",
+   "carrier_billing": "Direct bill",
+   "premium_sold": 5615,
+   "carrier_invoice": 6450,
+   "docs_required": [
+    "Signed application",
+    "Loss runs"
+   ],
+   "docs_received": [],
+   "docs_requested": [
+    "Signed application",
+    "Loss runs"
+   ],
+   "policy_status": "Ready to bind",
+   "certificate_request": null,
+   "effective_date": "2026-11-18",
+   "sold_at": "2026-11-13 15:20",
+   "shift": "Late",
+   "owner": "Tasha"
+  },
+  {
+   "id": "PR-06",
+   "business": "Sunrise Plumbing LLC",
+   "industry": "Plumber",
+   "contact": "Ray",
+   "address": "6838 Main St",
+   "city": "Charlotte",
+   "state": "NC",
+   "zip": "28267",
+   "line": "Commercial property",
+   "carrier": "Northfield Mutual",
+   "source": "Instant quote",
+   "carrier_source": "Instant quote",
+   "pay_type": "Paid in full",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Direct bill",
+   "carrier_billing": "Agency bill",
+   "premium_sold": 10435,
+   "carrier_invoice": 10435,
+   "docs_required": [
+    "Signed application",
+    "Property photos"
+   ],
+   "docs_received": [
+    "Signed application"
+   ],
+   "docs_requested": [],
+   "policy_status": "Ready to bind",
+   "certificate_request": null,
+   "effective_date": "2026-11-15",
+   "sold_at": "2026-11-13 08:00",
+   "shift": "Late",
+   "owner": "Tasha"
+  },
+  {
+   "id": "PR-07",
+   "business": "Northgate Auto Repair LLC",
+   "industry": "Auto repair garage",
+   "contact": "Mei",
+   "address": "7849 Spring St",
+   "city": "Sacramento",
+   "state": "CA",
+   "zip": "95826",
+   "line": "General liability",
+   "carrier": "Prairie Indemnity",
+   "source": "Instant quote",
+   "carrier_source": "Broker",
+   "pay_type": "Paid in full",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Direct bill",
+   "carrier_billing": "Direct bill",
+   "premium_sold": 2925,
+   "carrier_invoice": 2925,
+   "docs_required": [
+    "Signed application"
+   ],
+   "docs_received": [],
+   "docs_requested": [
+    "Signed application"
+   ],
+   "policy_status": "Ready to bind",
+   "certificate_request": null,
+   "effective_date": "2026-11-18",
+   "sold_at": "2026-11-13 15:05",
+   "shift": "Early",
+   "owner": "Jordan"
+  },
+  {
+   "id": "PR-08",
+   "business": "Maple Row Eats Co",
+   "industry": "Food truck",
+   "contact": "Janet",
+   "address": "522 Cedar Ave",
+   "city": "Nashville",
+   "state": "TN",
+   "zip": "37275",
+   "line": "Commercial property",
+   "carrier": "Keystone Assurance",
+   "source": "Instant quote",
+   "carrier_source": "Instant quote",
+   "pay_type": "Financed",
+   "finance_agreement": "On file",
+   "down_payment_pct": 25,
+   "billing": "Agency bill",
+   "carrier_billing": "Agency bill",
+   "premium_sold": 13460,
+   "carrier_invoice": 13460,
+   "docs_required": [
+    "Signed application",
+    "Property photos"
+   ],
+   "docs_received": [
+    "Signed application"
+   ],
+   "docs_requested": [
+    "Property photos"
+   ],
+   "policy_status": "Active",
+   "certificate_request": {
+    "holder": "Summit Property Management",
+    "requested_at": "2026-11-13 18:15"
+   },
+   "effective_date": "2026-11-13",
+   "sold_at": "2026-11-13 17:43",
+   "shift": "Late",
+   "owner": "Tasha"
+  },
+  {
+   "id": "PR-09",
+   "business": "Brightway Cleaning Co LLC",
+   "industry": "Cleaning company",
+   "contact": "Linda",
+   "address": "889 Commerce Dr",
+   "city": "Sacramento",
+   "state": "CA",
+   "zip": "95892",
+   "line": "Workers' comp",
+   "carrier": "Granite Casualty",
+   "source": "Instant quote",
+   "carrier_source": "Instant quote",
+   "pay_type": "Paid in full",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Agency bill",
+   "carrier_billing": "Agency bill",
+   "premium_sold": 1810,
+   "carrier_invoice": 1810,
+   "docs_required": [
+    "Signed application",
+    "Payroll estimate",
+    "Owner exclusion form"
+   ],
+   "docs_received": [
+    "Signed application",
+    "Payroll estimate"
+   ],
+   "docs_requested": [
+    "Owner exclusion form"
+   ],
+   "policy_status": "Ready to bind",
+   "certificate_request": {
+    "holder": "Ridgeline General Contractors",
+    "requested_at": "2026-11-13 16:40"
+   },
+   "effective_date": "2026-11-21",
+   "sold_at": "2026-11-13 07:45",
+   "shift": "Early",
+   "owner": "Priya"
+  },
+  {
+   "id": "PR-10",
+   "business": "Riverbend Eats LLC",
+   "industry": "Food truck",
+   "contact": "Brenda",
+   "address": "3167 Broad St",
+   "city": "Phoenix",
+   "state": "AZ",
+   "zip": "85032",
+   "line": "Professional liability",
+   "carrier": "Bayline Specialty",
+   "source": "Instant quote",
+   "carrier_source": "Instant quote",
+   "pay_type": "Financed",
+   "finance_agreement": "None",
+   "down_payment_pct": 100,
+   "billing": "Direct bill",
+   "carrier_billing": "Direct bill",
+   "premium_sold": 3335,
+   "carrier_invoice": 3335,
+   "docs_required": [
+    "Signed application"
+   ],
+   "docs_received": [
+    "Signed application"
+   ],
+   "docs_requested": [],
+   "policy_status": "Ready to bind",
+   "certificate_request": null,
+   "effective_date": "2026-11-21",
+   "sold_at": "2026-11-13 13:31",
+   "shift": "Early",
+   "owner": "Jordan"
+  }
+ ],
+ "planted": [
+  {
+   "order": "PR-01",
+   "check": "pay_type",
+   "note": "Paid-in-full deal recorded as financed"
+  },
+  {
+   "order": "PR-02",
+   "check": "po_box",
+   "note": "PO box used as the business address"
+  },
+  {
+   "order": "PR-04",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Resumes of key staff' and nobody asked for it"
+  },
+  {
+   "order": "PR-05",
+   "check": "amounts",
+   "note": "Carrier invoice differs from the sold premium by $835"
+  },
+  {
+   "order": "PR-06",
+   "check": "billing",
+   "note": "Recorded billing differs from how the carrier bills"
+  },
+  {
+   "order": "PR-06",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Property photos' and nobody asked for it"
+  },
+  {
+   "order": "PR-07",
+   "check": "source",
+   "note": "Source differs between our record and the carrier's"
+  },
+  {
+   "order": "PR-09",
+   "check": "certificate",
+   "note": "Certificate requested before the policy is bound and active"
+  },
+  {
+   "order": "PR-10",
+   "check": "pay_type",
+   "note": "Paid-in-full deal recorded as financed"
+  }
+ ]
+}

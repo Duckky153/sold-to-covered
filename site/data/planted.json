@@ -1,0 +1,225 @@
+{
+ "day": "2026-11-13",
+ "planted": [
+  {
+   "order": "SO-24102",
+   "check": "source",
+   "note": "Source (instant or broker) missing"
+  },
+  {
+   "order": "SO-24105",
+   "check": "pay_type",
+   "note": "Financed deal recorded as paid in full"
+  },
+  {
+   "order": "SO-24109",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Payroll estimate' and nobody asked for it"
+  },
+  {
+   "order": "SO-24110",
+   "check": "source",
+   "note": "Source (instant or broker) missing"
+  },
+  {
+   "order": "SO-24112",
+   "check": "pay_type",
+   "note": "Financed deal recorded as paid in full"
+  },
+  {
+   "order": "SO-24113",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Loss runs' and nobody asked for it"
+  },
+  {
+   "order": "SO-24117",
+   "check": "amounts",
+   "note": "Carrier invoice differs from the sold premium by $620"
+  },
+  {
+   "order": "SO-24120",
+   "check": "certificate",
+   "note": "Certificate requested before the policy is bound and active"
+  },
+  {
+   "order": "SO-24122",
+   "check": "pay_type",
+   "note": "Financed deal recorded as paid in full"
+  },
+  {
+   "order": "SO-24126",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Loss runs' and nobody asked for it"
+  },
+  {
+   "order": "SO-24126",
+   "check": "pay_type",
+   "note": "Financed deal recorded as paid in full"
+  },
+  {
+   "order": "SO-24127",
+   "check": "certificate",
+   "note": "Certificate requested before the policy is bound and active"
+  },
+  {
+   "order": "SO-24129",
+   "check": "po_box",
+   "note": "PO box used as the business address"
+  },
+  {
+   "order": "SO-24134",
+   "check": "po_box",
+   "note": "PO box used as the business address"
+  },
+  {
+   "order": "SO-24134",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Property photos' and nobody asked for it"
+  },
+  {
+   "order": "SO-24136",
+   "check": "billing",
+   "note": "Recorded billing differs from how the carrier bills"
+  },
+  {
+   "order": "SO-24139",
+   "check": "billing",
+   "note": "Recorded billing differs from how the carrier bills"
+  },
+  {
+   "order": "SO-24142",
+   "check": "pay_type",
+   "note": "Financed deal recorded as paid in full"
+  },
+  {
+   "order": "SO-24144",
+   "check": "po_box",
+   "note": "PO box used as the business address"
+  },
+  {
+   "order": "SO-24144",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Owner exclusion form' and nobody asked for it"
+  },
+  {
+   "order": "SO-24145",
+   "check": "amounts",
+   "note": "Carrier invoice differs from the sold premium by $740"
+  },
+  {
+   "order": "SO-24145",
+   "check": "billing",
+   "note": "Recorded billing differs from how the carrier bills"
+  },
+  {
+   "order": "SO-24146",
+   "check": "amounts",
+   "note": "Carrier invoice differs from the sold premium by $620"
+  },
+  {
+   "order": "SO-24149",
+   "check": "pay_type",
+   "note": "Paid-in-full deal recorded as financed"
+  },
+  {
+   "order": "SO-24152",
+   "check": "po_box",
+   "note": "PO box used as the business address"
+  },
+  {
+   "order": "SO-24153",
+   "check": "billing",
+   "note": "Recorded billing differs from how the carrier bills"
+  },
+  {
+   "order": "SO-24154",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Subcontractor agreements' and nobody asked for it"
+  },
+  {
+   "order": "SO-24162",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Payroll estimate' and nobody asked for it"
+  },
+  {
+   "order": "SO-24167",
+   "check": "pay_type",
+   "note": "Financed deal recorded as paid in full"
+  },
+  {
+   "order": "SO-24171",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Resumes of key staff' and nobody asked for it"
+  },
+  {
+   "order": "SO-24174",
+   "check": "billing",
+   "note": "Recorded billing differs from how the carrier bills"
+  },
+  {
+   "order": "SO-24175",
+   "check": "source",
+   "note": "Source (instant or broker) missing"
+  },
+  {
+   "order": "SO-24185",
+   "check": "amounts",
+   "note": "Carrier invoice differs from the sold premium by $410"
+  },
+  {
+   "order": "SO-24186",
+   "check": "source",
+   "note": "Source (instant or broker) missing"
+  },
+  {
+   "order": "SO-24187",
+   "check": "po_box",
+   "note": "PO box used as the business address"
+  },
+  {
+   "order": "SO-24197",
+   "check": "certificate",
+   "note": "Certificate requested before the policy is bound and active"
+  },
+  {
+   "order": "SO-24198",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Loss runs' and nobody asked for it"
+  },
+  {
+   "order": "SO-24198",
+   "check": "certificate",
+   "note": "Certificate requested before the policy is bound and active"
+  },
+  {
+   "order": "SO-24200",
+   "check": "pay_type",
+   "note": "Paid-in-full deal recorded as financed"
+  },
+  {
+   "order": "SO-24202",
+   "check": "source",
+   "note": "Source differs between our record and the carrier's"
+  },
+  {
+   "order": "SO-24205",
+   "check": "carrier_docs",
+   "note": "Carrier needs 'Subcontractor agreements' and nobody asked for it"
+  },
+  {
+   "order": "SO-24205",
+   "check": "amounts",
+   "note": "Carrier invoice differs from the sold premium by $555"
+  },
+  {
+   "order": "SO-24207",
+   "check": "billing",
+   "note": "Recorded billing differs from how the carrier bills"
+  },
+  {
+   "order": "SO-24209",
+   "check": "po_box",
+   "note": "PO box used as the business address"
+  }
+ ]
+}

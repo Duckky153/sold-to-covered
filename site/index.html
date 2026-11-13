@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sold to Covered: activation checks (unofficial prototype)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="#queue">Sold to Covered</a>
+    <nav class="views" aria-label="Views">
+      <a href="#queue" data-view="queue">Queue</a>
+      <a href="#adoption" data-view="adoption">Adoption</a>
+      <a href="#practice" data-view="practice">Practice</a>
+    </nav>
+    <span class="tag">Unofficial prototype · sample data</span>
+  </div>
+</header>
+
+<main>
+  <div id="view-queue" class="view" hidden>
+    <section class="band cream">
+      <div class="wrap">
+        <p class="eyebrow"><span>Activation checks · <span id="q-day"></span>, a sample day</span></p>
+        <h1>Catch it <em>before it moves.</em></h1>
+        <p class="lead" id="q-lead"></p>
+        <div class="strip" id="q-strip"></div>
+        <p class="caption">Evals: the sample day was made with planted problems and an answer key the checks never see. A run passes only if every planted problem is found and no clean order is flagged. That proves the checks catch every kind of problem they are built for. It is not a measure of accuracy on real orders.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="head-row">
+          <div>
+            <p class="eyebrow">Today's queue</p>
+            <h2 id="q-title"></h2>
+          </div>
+          <p class="progress" id="q-progress"></p>
+        </div>
+        <div class="tabs" id="q-tabs" role="tablist"></div>
+        <div class="queue" id="q-rows"></div>
+        <div class="more" id="q-more"></div>
+        <p class="caption">Sorted by the day the policy starts. Click a row to see the order, the evidence and the next step.</p>
+      </div>
+    </section>
+
+    <section class="band cream">
+      <div class="wrap">
+        <p class="eyebrow">The checks</p>
+        <h2>The checks, kept as <em>data</em></h2>
+        <p class="body-text">Each check is one entry in <code>checks.json</code>: the fields it reads, the rule, who fixes it and the next step. One small engine runs every check on every order. A new check that uses an existing kind of rule is one more entry.</p>
+        <div class="checks" id="c-rows"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="view-adoption" class="view" hidden>
+    <section class="band cream">
+      <div class="wrap">
+        <p class="eyebrow">Adoption · simulated rollout</p>
+        <h1>Is it <em>used?</em></h1>
+        <p class="lead">A bot nobody uses is a demo. This is what gets tracked from the first day on the floor. The two weeks below are simulated to show the tracking. They are not real results.</p>
+        <p class="session" id="a-session"></p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <p class="eyebrow">The weekly number</p>
+        <h2>Problems found <em>after</em> binding</h2>
+        <div class="weeks" id="a-weeks"></div>
+        <p class="caption">A problem found after binding means a customer who thought they were covered gets a call to fix it. Counted 30 days after each week, because these problems take time to surface. Includes problems the seven checks do not look for. Simulated.</p>
+      </div>
+    </section>
+
+    <section class="band cream">
+      <div class="wrap">
+        <p class="eyebrow">Day by day</p>
+        <h2>Orders that moved with a <em>flag still open</em></h2>
+        <div class="table-scroll"><table class="days" id="a-days"></table></div>
+        <p class="caption">An order that goes to binding while a check is still unresolved means someone skipped the check. It is the number that shows a tool nobody uses.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap two">
+        <div>
+          <p class="eyebrow">What changed, and why</p>
+          <ol class="log" id="a-log"></ol>
+        </div>
+        <div>
+          <p class="eyebrow">Dismissals show which check is wrong</p>
+          <div class="table-scroll"><table class="plain" id="a-dismiss"></table></div>
+          <p class="caption">When people keep dismissing one check for the same reason, the check is wrong, not the people. That is how the subjectivities check got fixed on Oct 13.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="view-practice" class="view" hidden>
+    <section class="band cream">
+      <div class="wrap">
+        <p class="eyebrow">Practice · ten orders</p>
+        <h1>Learn it on <em>planted problems.</em></h1>
+        <p class="lead">How a new teammate learns the checks before touching a live order: ten made-up orders, some with problems planted in them, scored against the answer key. Pass mark: <span id="p-mark"></span> of 10.</p>
+      </div>
+    </section>
+    <section class="band">
+      <div class="wrap" id="p-body"></div>
+    </section>
+  </div>
+</main>
+
+<aside class="panel" id="panel" hidden role="dialog" aria-modal="true" aria-label="Order detail" tabindex="-1">
+  <div class="panel-inner" id="panel-body"></div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+
+<footer class="foot">
+  <div class="wrap">Sample data only: every business, person, carrier and amount is made up. Nothing is sent to anyone. Unofficial prototype, not affiliated with Harper.</div>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
