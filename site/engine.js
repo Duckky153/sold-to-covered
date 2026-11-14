@@ -31,7 +31,13 @@ export function evaluate(rule, order) {
     case "list_not_covered": {
       const covered = new Set(rule.covered_by.flatMap((f) => order[f] || []));
       const missing = (order[rule.field] || []).filter((x) => !covered.has(x));
-      return missing.length ? { missing, fields: [rule.field] } : null;
+      if (!missing.length) return null;
+      // Items already asked for but not yet in (remind_from), so one message can list everything still owed.
+      const waiting = rule.remind_from
+        ? (order[rule.field] || []).filter((x) => (order[rule.remind_from] || []).includes(x)
+            && !rule.covered_by.some((f) => f !== rule.remind_from && (order[f] || []).includes(x)))
+        : [];
+      return { missing, waiting, fields: [rule.field] };
     }
     case "differs_by_more_than": {
       if (isEmpty(order[rule.a]) || isEmpty(order[rule.b])) {
@@ -73,16 +79,26 @@ function joinList(items) {
   return items.slice(0, -1).join(", ") + " and " + items[items.length - 1];
 }
 
+// Placeholders: {field}, {derived}, {missing}, {waiting}, {it_or_them}, {effective_date}; add |lower to lowercase.
+// [[ ... ]] is an optional part: it is left out when a placeholder inside it has nothing to show.
 export function fill(template, order, found) {
-  return template.replace(/\{(\w+)(\|lower)?\}/g, (_, key, lower) => {
-    let out;
-    if (key === "derived") out = found.derived;
-    else if (key === "missing") out = joinList(found.missing || []);
-    else if (key === "effective_date") out = shortDate(order.effective_date);
-    else if (key in order) out = formatValue(key, order[key]);
-    else return `{${key}}`;
+  const value = (key) => {
+    if (key === "derived") return found.derived ?? "";
+    if (key === "missing") return joinList(found.missing || []);
+    if (key === "waiting") return joinList(found.waiting || []);
+    if (key === "it_or_them") return (found.missing || []).length + (found.waiting || []).length > 1 ? "them" : "it";
+    if (key === "effective_date") return shortDate(order.effective_date);
+    if (key in order) return formatValue(key, order[key]);
+    return null;
+  };
+  const sub = (text) => text.replace(/\{(\w+)(\|lower)?\}/g, (_, key, lower) => {
+    const out = value(key);
+    if (out === null) return `{${key}}`;
     return lower ? out.toLowerCase() : out;
   });
+  const optional = template.replace(/\[\[(.*?)\]\]/g, (_, part) =>
+    [...part.matchAll(/\{(\w+)/g)].every(([, key]) => value(key)) ? part : "");
+  return sub(optional);
 }
 
 export function shortDate(iso) {
