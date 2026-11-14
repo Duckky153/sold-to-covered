@@ -92,7 +92,8 @@
         "covered_by": [
           "docs_received",
           "docs_requested"
-        ]
+        ],
+        "remind_from": "docs_requested"
       },
       "says": "The carrier still needs the {missing|lower}, and nobody has asked for it.",
       "evidence": [
@@ -101,7 +102,7 @@
         "docs_requested"
       ],
       "next_step": "Send the customer one message listing what is still needed.",
-      "customer_message": "Hi {contact}, before your {line|lower} policy can start on {effective_date}, the insurance company needs your {missing|lower}. You can reply to this message with it.",
+      "customer_message": "Hi {contact}, before your {line|lower} policy can start on {effective_date}, the insurance company needs your {missing|lower}.[[ We're also still waiting on your {waiting|lower}.]] You can reply to this message with {it_or_them}.",
       "how_to_fix": {
         "means": "Something on the carrier's list is neither received nor requested.",
         "confirm": "Check the inbox first. Documents sent by email count as received.",

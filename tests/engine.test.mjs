@@ -80,6 +80,33 @@ test("customer messages list what is missing and never mention coverage", () => 
   assert.equal(fill("{missing}", clean, { missing: ["A", "B", "C"] }), "A, B and C");
 });
 
+test("one message lists every missing document: the new one, plus a reminder for ones already asked for (issue #1)", () => {
+  // SO-24109: application received, owner exclusion form asked for, payroll estimate asked for by nobody.
+  const magnolia = {
+    ...clean, contact: "Linda", line: "Workers' comp", effective_date: "2026-11-15",
+    docs_required: ["Signed application", "Payroll estimate", "Owner exclusion form"],
+    docs_received: ["Signed application"], docs_requested: ["Owner exclusion form"],
+  };
+  const [f] = runChecks(config, [magnolia]);
+  assert.equal(f.says, "The carrier still needs the payroll estimate, and nobody has asked for it.");
+  assert.equal(f.customer_message,
+    "Hi Linda, before your workers' comp policy can start on Nov 15, the insurance company needs your payroll estimate. " +
+    "We're also still waiting on your owner exclusion form. You can reply to this message with them.");
+
+  // SO-24113: nothing received; application and subcontractor agreements asked for; loss runs asked for by nobody.
+  const kitchen = {
+    ...clean, docs_required: ["Signed application", "Subcontractor agreements", "Loss runs"],
+    docs_received: [], docs_requested: ["Signed application", "Subcontractor agreements"],
+  };
+  const [k] = runChecks(config, [kitchen]);
+  assert.match(k.customer_message, /needs your loss runs\. We're also still waiting on your signed application and subcontractor agreements\. You can reply to this message with them\.$/);
+
+  // Nothing else outstanding: no reminder sentence, and "it" for a single document.
+  const [single] = runChecks(config, [{ ...clean, docs_requested: [] }]);
+  assert.match(single.customer_message, /needs your loss runs\. You can reply to this message with it\.$/);
+  assert.doesNotMatch(single.customer_message, /also still waiting/);
+});
+
 test("the sample day passes its evals: every hidden problem found, no false flags", () => {
   const orders = load("orders.json").orders;
   const planted = load("planted.json").planted;
