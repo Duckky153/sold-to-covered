@@ -21,14 +21,32 @@ Harper's posting describes the problem: between "sold" and "covered", a financed
 - `generate.py` makes the sample day with a fixed seed, plants 44 problems in 38 orders, and writes an answer key the checks never see.
 - **Evals:** a run passes only if every planted problem is found and no clean order is flagged (currently 44 of 44 found, 0 false flags on 77 clean orders). This is a regression test. It shows each check works and keeps working after a change. It is not a measure of accuracy on real orders.
 
-## Run it locally
+## Try it
 
-    ./run.sh        # serves site/ at http://127.0.0.1:5110/
+The easiest way is the live page: https://duckky153.github.io/sold-to-covered/
+
+## Run it on your own computer
+
+You need Python 3 and Git.
+
+1. Download the project and go into its folder. These two commands work from any folder in Terminal:
+
+       git clone https://github.com/Duckky153/sold-to-covered.git
+       cd sold-to-covered
+
+2. Start it:
+
+       ./run.sh
+
+   Then open http://127.0.0.1:5110/ in your browser. Press Control-C in Terminal to stop it.
 
 ## Tests
 
+From the same `sold-to-covered` folder (needs Node.js):
+
     node --test tests/
-    python3 -m pip install pytest && python3 -m pytest -q tests/test_generate.py
+
+This runs the engine tests: every check against a clean order and a broken one, and the whole sample day, which must find all 44 planted problems with no false flags. GitHub runs these tests, plus the tests for `generate.py`, on every change before the page updates (see the Actions tab).
 
 ## Limits
 
